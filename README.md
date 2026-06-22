@@ -30,11 +30,6 @@ Each sensor has its own folder and README. When a sensor is implemented, its fol
 - Python 3
 - Serial dependency: `python3-serial` / `pyserial`
 
-Install the serial dependency if needed:
-
-```bash
-sudo apt install python3-serial
-```
 
 ## Clone and Build
 
