@@ -93,18 +93,3 @@ msg.header.stamp = self.get_clock().now().to_msg()
 
 With normal settings, this is system time. If `use_sim_time` is enabled, it follows `/clock` simulation time.
 
-## Troubleshooting
-
-Check device path:
-
-```bash
-ls /dev/ttyUSB*
-```
-
-Check raw output first:
-
-```bash
-ros2 topic echo /imu/raw
-```
-
-If no data appears, verify the port, baudrate, cable, power, and serial permissions.
