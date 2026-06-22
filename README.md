@@ -30,7 +30,6 @@ Each sensor has its own folder and README. When a sensor is implemented, its fol
 - Python 3
 - Serial dependency: `python3-serial` / `pyserial`
 
-
 ## Clone and Build
 
 Clone this repository into a ROS2 workspace `src` directory:
@@ -50,49 +49,6 @@ You can also use `local_setup.bash` after sourcing ROS2:
 source /opt/ros/jazzy/setup.bash
 source ~/ros2_ws/install/local_setup.bash
 ```
-
-## Current Working Package
-
-### MW-AHRS-X1
-
-Run:
-
-```bash
-ros2 run mw_ahrs_x1_pkg mw_ahrs_x1_node
-```
-
-Check topics:
-
-```bash
-ros2 topic list
-ros2 topic echo /imu/raw
-ros2 topic echo /imu/data
-ros2 topic echo /imu
-```
-
-The node automatically sends `+++` and then `ss=4` to the sensor at startup.
-
-## Common Notes for Users
-
-Before running a sensor node, check these items:
-
-- The sensor is connected to the computer or Raspberry Pi.
-- The serial port is correct, for example `/dev/ttyUSB0`.
-- The current user has permission to access the serial device.
-- ROS2 environment is sourced.
-- The package has been built after cloning or editing.
-
-If serial permission is denied, add the user to the `dialout` group and log out/in:
-
-```bash
-sudo usermod -a -G dialout $USER
-```
-
-## Documentation Policy
-
-- Root `README.md`: overall repository structure, build method, and sensor list.
-- Sensor folder `README.md`: sensor-specific connection, parameters, topics, and run examples.
-- Code comments: only for logic that is not obvious from the code.
 
 ## Future Work
 
