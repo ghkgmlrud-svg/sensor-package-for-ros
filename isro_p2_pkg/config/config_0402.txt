@@ -1,0 +1,8 @@
+InterfaceMode:COM1,PIMTP,PIMTP
+BaudRate:COM1,460800
+IMU:INTERNAL
+INSRotation:RBV,0.00,0.00,0.00,3.0,3.0,3.0
+INSTranslation:Ant1,-0.84,0.66,0.60,0.05,0.05,0.05
+INSTranslation:Ant2,0.12,0.66,0.60,0.05,0.05,0.05
+LogAutomotive:COM1,PVA,TIME,0.1,0
+LogAutomotive:COM1,IMU,TIME,0.02,0
