@@ -9,7 +9,6 @@ ROS2 package for receiving ISRO-P2 PIMTP binary serial data and publishing PVA/G
 | ROS2 package | `isro_p2_pkg` |
 | Node executable | `isro_p2_node` |
 | Python node file | `isro_p2_pkg/isro_p2_node.py` |
-| Example config | `config/config_0402.txt` |
 
 ## What This Node Reads
 
@@ -43,13 +42,7 @@ ros2 run isro_p2_pkg isro_p2_node --ros-args \
   -p poll_hz:=100.0
 ```
 
-Send the included example sensor configuration before reading data:
-
-```bash
-ros2 run isro_p2_pkg isro_p2_node --ros-args -p send_config:=true
-```
-
-Use a different config file:
+Send a sensor configuration file before reading data:
 
 ```bash
 ros2 run isro_p2_pkg isro_p2_node --ros-args \
@@ -68,7 +61,7 @@ ros2 run isro_p2_pkg isro_p2_node --ros-args \
 | `frame_id` | `isro_p2_link` | Frame ID for velocity and attitude messages |
 | `gps_frame_id` | `gps` | Frame ID for GNSS fix messages |
 | `send_config` | `false` | Send config commands at startup |
-| `config_path` | packaged `config/config_0402.txt` | Config file used when `send_config` is true |
+| `config_path` | empty | Config file used when `send_config` is true |
 | `log_crc_warnings` | `false` | Log CRC mismatch warnings |
 
 ## Published Topics

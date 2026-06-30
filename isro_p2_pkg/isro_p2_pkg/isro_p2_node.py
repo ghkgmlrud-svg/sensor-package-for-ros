@@ -262,6 +262,7 @@ class IsroP2Node(Node):
         self.declare_parameter("frame_id", "isro_p2_link")
         self.declare_parameter("gps_frame_id", "gps")
         self.declare_parameter("send_config", False)
+        self.declare_parameter("config_path", "")
         self.declare_parameter("strict_crc", True)
         self.declare_parameter("log_crc_warnings", False)
         self.declare_parameter("log_frame_debug", False)
@@ -286,7 +287,12 @@ class IsroP2Node(Node):
 
         self.serial_port = self._open_serial()
         if bool(self.get_parameter("send_config").value):
-            self._send_config(Path(self.get_parameter("config_path").value))
+            config_path = str(self.get_parameter("config_path").value)
+            if not config_path:
+                raise RuntimeError(
+                    "config_path is required when send_config is true"
+                )
+            self._send_config(Path(config_path))
 
         timer_period = 1.0 / self.poll_hz if self.poll_hz > 0.0 else 0.01
         self.timer = self.create_timer(timer_period, self.read_once)
